@@ -1,0 +1,47 @@
+{% extends "library/base.html" %}
+
+{% block content %}
+
+<p>
+<h3><a class="article-title" href="#"> Courses  </a></h3>
+    {% for c in course %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+{#              <h3><a class="article-title" href="#"> Courses  </a></h3>#}
+              <a class="mr-2" >{{ c.name }} </a>
+
+            </div>
+
+            <p class="article-content">{{ post.content }}</p>
+          </div>
+        </article>
+{#        {{ c.name }}#}
+    {% endfor %}
+</p>
+
+<p>
+{#    <h3>Academician</h3>#}
+</p>
+
+<p>
+<h3><a class="article-title" href="{% url 'library-lnotes_list' %}"> Academician  </a></h3>
+    {% for a in academician %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+{#              <h3><a class="article-title" href="#"> Academician  </a></h3>#}
+              <a class="mr-2" >{{ a.name }} {{ a.last_name }} </a>
+                <a class="mr-2" >{{ a.course }} </a>
+            </div>
+            <p class="article-content">{{ post.content }}</p>
+          </div>
+        </article>
+{#        {{ a.name }}#}
+{#        {{ a.last_name }}#}
+{#        {{ a.course }}#}
+
+    {% endfor %}
+</p>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'library/base.html' %}
+
+{% block content %}
+
+  {% block content_header %}
+    <h2>Notes</h2>
+    <p>
+      <a href="{% url 'library-upload_snotes' %}" class="btn btn-primary">Upload Notes</a>
+    </p>
+  {% endblock %}
+  <table class="table mb-0">
+    <thead>
+      <tr>
+{#        <th>Cover</th>#}
+        <th>Course</th>
+        <th>Student</th>
+        <th>Download</th>
+{#        <th>Delete</th>#}
+      </tr>
+    </thead>
+    <tbody>
+      {% for s in snote %}
+        <tr>
+          <td>{{ s.name }}</td>
+          <td>{{ s.student }}</td>
+          <td>
+            <a href="{{ s.pdf.url }}" class="btn btn-primary btn-sm" target="_blank">
+              Download PDF
+            </a>
+          </td>
+{#          <td>#}
+{#            <form method="post" action="{% url 'delete_book' book.pk %}">#}
+{#              {% csrf_token %}#}
+{#              <button type="submit" class="btn btn-danger btn-sm">Delete</button>#}
+{#            </form>#}
+{#          </td>#}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
